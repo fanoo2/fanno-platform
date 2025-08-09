@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@org/design-system/*": ["packages/design-system/src/*"],
+      "@fanno/webrtc-client/*": ["packages/webrtc-client/src/*"],
+      "@fanno/shared/*": ["packages/shared/src/*"],
+      "@fanno/payments/*": ["packages/payments/src/*"],
+      "@fanno/moderation/*": ["packages/moderation/src/*"]
+    }
+  }
+}
