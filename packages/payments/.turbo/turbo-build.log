@@ -1,0 +1,5 @@
+
+
+> @fanno/payments@0.1.0 build /home/runner/work/fanno-platform/fanno-platform/packages/payments
+> tsc -p tsconfig.json
+

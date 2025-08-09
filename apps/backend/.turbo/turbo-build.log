@@ -1,0 +1,5 @@
+
+
+> @fanno/backend@0.1.0 build /home/runner/work/fanno-platform/fanno-platform/apps/backend
+> tsc -p tsconfig.json
+

@@ -4,6 +4,7 @@
     "moduleResolution": "node",
     "strict": true,
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@org/design-system/*": ["packages/design-system/src/*"],

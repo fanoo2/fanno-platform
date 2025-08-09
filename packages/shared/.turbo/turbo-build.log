@@ -1,0 +1,5 @@
+
+
+> @fanno/shared@0.1.0 build /home/runner/work/fanno-platform/fanno-platform/packages/shared
+> tsc -p tsconfig.json
+
