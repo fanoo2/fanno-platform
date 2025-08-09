@@ -1,0 +1,5 @@
+
+
+> @org/design-system@0.1.0 build /home/runner/work/fanno-platform/fanno-platform/packages/design-system
+> tsc -p tsconfig.json
+

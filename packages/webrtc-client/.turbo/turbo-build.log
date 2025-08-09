@@ -1,0 +1,5 @@
+
+
+> @fanno/webrtc-client@1.0.0 build /home/runner/work/fanno-platform/fanno-platform/packages/webrtc-client
+> tsc -p tsconfig.json
+
