@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: backend } }
+  template:
+    metadata: { labels: { app: backend } }
+    spec:
+      containers:
+        - name: backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports: [{ containerPort: 5000 }]
+          env:
+            - name: LIVEKIT_URL
+              value: "{{ .Values.env.LIVEKIT_URL }}"
+            - name: LIVEKIT_API_KEY
+              value: "{{ .Values.env.LIVEKIT_API_KEY }}"
+            - name: LIVEKIT_API_SECRET
+              value: "{{ .Values.env.LIVEKIT_API_SECRET }}"
+            - name: STRIPE_SECRET_KEY
+              value: "{{ .Values.env.STRIPE_SECRET_KEY }}"
+            - name: PUBLIC_WEB_URL
+              value: "{{ .Values.env.PUBLIC_WEB_URL }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector: { app: backend }
+  ports:
+    - port: 80
+      targetPort: 5000
+      protocol: TCP
