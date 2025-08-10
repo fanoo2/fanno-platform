@@ -1,6 +1,16 @@
 
 
 > @fanno/admin@0.1.0 test /home/runner/work/fanno-platform/fanno-platform/apps/admin
-> echo "no tests yet"
+> vitest
 
-no tests yet
+[?25l
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90m/home/runner/work/fanno-platform/fanno-platform/apps/admin[39m
+
+ [32m✓[39m src/__tests__/app.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m   Start at [22m 02:02:22
+[2m   Duration [22m 660ms[2m (transform 38ms, setup 0ms, collect 29ms, tests 3ms, environment 391ms, prepare 74ms)[22m
+
+[?25h

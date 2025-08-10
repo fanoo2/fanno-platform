@@ -21,7 +21,7 @@ export function registerRoutes(app: Express) {
       at.addGrant({ roomJoin: true, room: roomName, canPublish: true, canSubscribe: true, canPublishData: true });
       const token = at.toJwt();
       return res.json({ token, url, identity: userIdentity, roomName: roomName ?? null });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('livekit token error', err);
       return res.status(500).json({ error: 'token_failed' });
     }
@@ -41,14 +41,14 @@ export function registerRoutes(app: Express) {
         cancel_url: `${process.env.PUBLIC_WEB_URL ?? 'http://localhost:5173'}/checkout?canceled=1`
       });
       return res.json({ id: session.id, url: session.url });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('create-session error', err);
       return res.status(500).json({ error: 'stripe_failed' });
     }
   });
 
   // Stripe webhook (raw body)
-  app.post('/payments/webhook', express.raw({ type: 'application/json' }), (req: any, res: Response) => {
+  app.post('/payments/webhook', express.raw({ type: 'application/json' }), (req: Request, res: Response) => {
     const sig = req.headers['stripe-signature'];
     if (!sig) return res.status(400).send('No signature');
     // Verify & handle events here if you add STRIPE_WEBHOOK_SECRET.
