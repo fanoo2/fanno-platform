@@ -1,0 +1,25 @@
+# Global values for fanno-platform Helm charts
+global:
+  imageRegistry: ghcr.io
+  imageOwner: OWNER
+
+backend:
+  image:
+    repository: ghcr.io/OWNER/fanno-backend
+    tag: latest
+  service:
+    port: 5000
+  env:
+    LIVEKIT_URL: ""
+    LIVEKIT_API_KEY: ""
+    LIVEKIT_API_SECRET: ""
+    STRIPE_SECRET_KEY: ""
+    PUBLIC_WEB_URL: ""
+
+admin:
+  image:
+    repository: ghcr.io/OWNER/fanno-admin
+    tag: latest
+  service:
+    port: 5173
+  env: {}

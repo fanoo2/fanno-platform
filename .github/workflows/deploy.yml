@@ -1,0 +1,20 @@
+name: Render Helm
+on:
+  workflow_dispatch:
+    inputs:
+      imageTag:
+        required: true
+        description: "Image tag (e.g. v1.0.0)"
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+        with: { version: "v3.14.4" }
+      - name: Render
+        run: |
+          helm template backend infra/helm/backend --set image.repository=ghcr.io/${{ github.repository_owner }}/fanno-backend --set image.tag=${{ inputs.imageTag }} > backend.yaml
+          helm template admin infra/helm/admin --set image.repository=ghcr.io/${{ github.repository_owner }}/fanno-admin --set image.tag=${{ inputs.imageTag }} > admin.yaml
+      - uses: actions/upload-artifact@v4
+        with: { name: manifests, path: "*.yaml" }
